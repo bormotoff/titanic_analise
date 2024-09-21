@@ -111,24 +111,25 @@ final_summary = pd.concat(summary_tables, ignore_index=True)
 # Insights explorados
 
 ### Análise Descritiva:
-Foram feitas distribuições categóricas como Sex, Pclass, Embarked e Title, que mostram a distribuição dessas características entre os passageiros.
+Fiz distribuições categóricas como Sex, Pclass, Embarked e Title, que mostram a distribuição dessas características entre os passageiros.
 
 ### Criação de Novas Features:
 Variáveis como IsAlone foram criadas para verificar se passageiros que estavam sozinhos tinham diferentes chances de sobrevivência.
 
 ### Modelagem Preditiva (Random Forest):
-O conjunto foi dividido em features (Pclass, Sex, Age, Fare, FamilySize, IsAlone) para o treinamento do modelo e a variável-alvo foi Survived.
+Divide o conjunto em features (Pclass, Sex, Age, Fare, FamilySize, IsAlone) para o treinamento do modelo e a variável-alvo foi Survived.
 Um modelo de Random Forest foi treinado com 100 árvores de decisão e uma semente de aleatoriedade (random_state = 42) para garantir a reprodutibilidade. O modelo foi avaliado e utilizado para prever a sobrevivência dos passageiros no conjunto de teste.
 ### Análises Visuais:
-Foram criados gráficos de distribuição para visualizar a sobrevivência com base em características como sexo, classe e porto de embarque.
-Foi gerada uma matriz de correlação para analisar as inter-relações entre as variáveis numéricas do conjunto de dados e uma Avaliação do desempenho do modelo através de uma matriz de confusão para verificar verdadeiros e falsos positivos/negativos.
+Criei gráficos de distribuição para visualizar a sobrevivência com base em características como sexo, classe e porto de embarque.
+E foi gerada uma matriz de correlação para analisar as inter-relações entre as variáveis numéricas do conjunto de dados e uma Avaliação do desempenho do modelo através de uma matriz de confusão para verificar verdadeiros e falsos positivos/negativos.
 
-A curva ROC foi gerada para avaliar o desempenho do modelo com relação à taxa de verdadeiros e falsos positivos
+A curva ROC avaliou o desempenho do modelo com relação à taxa de verdadeiros e falsos positivos
 
 ### Resultado
 
 Sobrevivência por Sexo: 
 Mulheres tinham uma chance significativamente maior de sobreviver em comparação aos homens.
+
 
 Sobrevivência por Classe: 
 Passageiros da 1ª classe tinham maior probabilidade de sobreviver, enquanto os da 3ª classe enfrentaram maiores riscos.
