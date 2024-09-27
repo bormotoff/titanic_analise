@@ -1,144 +1,99 @@
+# Projeto de Análise dos Dados do Titanic
 
-# Titanic - Análise de Sobrevivência
+Este projeto utiliza o conjunto de dados do Titanic, amplamente conhecido e usado em competições de aprendizado de máquina e análises de dados. O objetivo é explorar os dados e identificar padrões relacionados à sobrevivência dos passageiros, utilizando técnicas de visualização e análise de dados.
 
-Este projeto utiliza o dataset clássico do Titanic disponivel na Kubblr para realizar uma análise exploratória de dados, visualizações e modelagem preditiva de sobrevivência usando técnicas de Machine Learning, visando identificar taxas de sobrevivência com diversas variaveis. 
+## Objetivo
 
-Os dados são históricos e não tem relação com o filme ou obras ficcionais baseadas nos eventos.
+O objetivo deste projeto é realizar uma análise exploratória dos dados do Titanic, identificando como fatores como sexo, classe social, tarifa paga, porto de embarque e título de nobreza influenciaram as chances de sobrevivência.
 
-# Referência
+## Arquivos
 
-#### Fonte historica: 
-https://www.noaa.gov/office-of-general-counsel/gc-international-section/rms-titanic-history-and-significance
+- `analisetitanic.ipynb`: Notebook Jupyter contendo o código da análise.
+- `contagem_sobreviventes.png`: Gráfico de barras mostrando a contagem de sobreviventes.
+- `Distribuição_Sexo_Sobrevivência.png`: Gráfico de barras segmentado por sexo e sobrevivência.
+- `Distribuição_Classe_Sobrevivência.png`: Gráfico de barras segmentado por classe e sobrevivência.
+- `Distribuição_Porto_Embarque_Sobrevivência.png`: Gráfico de barras segmentado por porto de embarque e sobrevivência.
+- `Distribuição_Título_Sobrevivência.png`: Gráfico de barras segmentado por título e sobrevivência.
+- `Fare_sobrevivencia.png`: Gráfico boxplot da distribuição de tarifas pagas pelos passageiros, comparando sobreviventes e não sobreviventes.
+- `Histograma_idade_sobrevivência.png`: Histogramas comparando a idade dos passageiros que sobreviveram com os que não sobreviveram.
+- `idade_sobrevivencia.png`: Boxplot mostrando a distribuição de idade entre os passageiros que sobreviveram e os que não sobreviveram.
+- `Importância_das_Features.png`: Gráfico de barras mostrando a importância das variáveis (features) no modelo Random Forest.
+- `matriz_confusao_rf.png`: Matriz de confusão do modelo Random Forest.
+- `Matriz_correlação_Variáveis.png`: Matriz de correlação entre as variáveis utilizadas na análise.
+- `porto_embarque.png`: Gráfico de barras mostrando a sobrevivência por porto de embarque.
+- `Sobrevivência_classe.png`: Gráfico de barras mostrando a sobrevivência por classe social.
+- `Sobrevivência_sexo.png`: Gráfico de barras mostrando a sobrevivência por sexo.
+- `Sozinho_acompanhado.png`: Gráfico de barras mostrando a sobrevivência de pessoas que estavam sozinhas versus acompanhadas.
 
-#### Fonte original dos dados
-https://www.kaggle.com/c/titanic
+## Análises
 
-# Links uteis no Repositório
+### 1. Distribuição Geral de Sobreviventes
 
-#### Jupyter Notebook: 
-https://github.com/bormotoff/titanic_analise/blob/main/analisetitanic.ipynb
+![Contagem de Sobreviventes](contagem_sobreviventes.png)
+Este gráfico mostra que a maioria dos passageiros do Titanic não sobreviveu, com aproximadamente 550 mortos e 340 sobreviventes.
 
-#### Analise em Python:
-https://github.com/bormotoff/titanic_analise/blob/main/analisetitanic.py
+### 2. Distribuição de Sobrevivência por Sexo
 
-#### Dashboard usando plotly em Python:
-https://github.com/bormotoff/titanic_analise/blob/main/dashtitanic.py
-# Documentação
-## Entendimento dos dados
+![Distribuição por Sexo](Distribuiçã0_Sexo_Sobrevivência.png)
+Analisando a sobrevivência por sexo, podemos observar que a maior parte dos homens não sobreviveu, enquanto a maioria das mulheres sobreviveu. Isso reflete a política de "mulheres e crianças primeiro" adotada durante o desastre.
 
-#### PassengerId
-Um identificador único para cada passageiro no conjunto de dados.
+### 3. Distribuição de Sobrevivência por Classe
 
-#### Sobrevivência
-Variável alvo, que indica se o passageiro sobreviveu (1) ou não (0).
+![Distribuição por Classe](Sobrevivência_classe.png)
+A distribuição por classe revela que os passageiros da primeira classe tiveram maiores chances de sobrevivência, enquanto os da terceira classe foram os que mais faleceram.
 
-#### Pclass
-Classe do passageiro (1 = Primeira, 2 = Segunda, 3 = Terceira).
+### 4. Distribuição de Sobrevivência por Porto de Embarque
 
-#### Name
-Nome do passageiro.
+![Distribuição por Porto de Embarque](porto_embarque.png)
+O gráfico mostra que os passageiros que embarcaram no porto de Southampton (S) constituem a maior parte dos mortos. Em Cherbourg (C), houve uma proporção maior de sobreviventes.
 
-### Sex
-Sexo do passageiro (male = masculino, female = feminino).
+### 5. Distribuição de Sobrevivência por Título
 
-#### Age
-Idade do passageiro.
+![Distribuição por Título](Distribuição_Título_Sobrevivência.png)
+Os gráficos de título mostram que mulheres com os títulos de Miss e Mrs têm uma taxa de sobrevivência maior, enquanto a maioria dos homens com o título de Mr não sobreviveu.
 
-#### SibSp
-Número de irmãos/cônjuges a bordo com o passageiro.
+### 6. Distribuição de Tarifa por Sobrevivência
 
-#### Parch
-Número de pais/filhos a bordo com o passageiro.
+![Distribuição de Tarifa](Fare_sobrevivencia.png)
+A distribuição das tarifas pagas indica que os sobreviventes tenderam a pagar tarifas mais altas, indicando uma correlação entre a classe social e as chances de sobrevivência.
 
-#### Ticket
-Número do bilhete do passageiro.
-Uso no Script: Não utilizado diretamente na modelagem ou análise.
+### 7. Distribuição de Idade por Sobrevivência
 
-#### Fare
-Tarifa paga pelo passageiro.
+![Distribuição de Idade](idade_sobrevivencia.png)
+O boxplot acima mostra a distribuição de idade entre os passageiros que sobreviveram e os que não sobreviveram. Nota-se que há uma tendência para a sobrevivência de passageiros mais jovens, embora haja também uma faixa considerável de idosos sobreviventes.
 
-#### Cabin
-Número da cabine do passageiro.
+### 8. Importância das Features no Modelo Random Forest
 
-#### Embarked
-Porto de embarque do passageiro (C = Cherbourg, Q = Queenstown, S = Southampton).
+![Importância das Features](Importância_das_Features.png)
+Este gráfico de barras mostra a importância das variáveis utilizadas no modelo Random Forest. As variáveis mais influentes para o modelo foram "Fare" (Tarifa) e "Age" (Idade).
 
+### 9. Matriz de Confusão - Random Forest
 
-# Preparação dos dados
-## Bibliotecas
-import pandas as pd
+![Matriz de Confusão](matriz_confusao_rf.png)
+A matriz de confusão do modelo Random Forest mostra um desempenho razoável do modelo, com poucos erros na classificação de sobreviventes e não sobreviventes.
 
-import numpy as np
+### 10. Matriz de Correlação das Variáveis
 
-import matplotlib.pyplot as plt
+![Matriz de Correlação](Matriz_correlação_Variáveis.png)
+A matriz de correlação acima apresenta as relações entre as principais variáveis analisadas, indicando quais fatores estão mais relacionados uns aos outros e à sobrevivência.
 
-import seaborn as sns
+### 11. Sobrevivência por Sexo
 
-import LogisticRegression
+![Sobrevivência por Sexo](Sobrevivência_sexo.png)
+Este gráfico de barras mostra que as mulheres tiveram maior chance de sobrevivência do que os homens.
 
-import SVC
+### 12. Sobrevivência por Estar Sozinho ou Acompanhado
 
-import confusion_matrix
+![Sozinho ou Acompanhado](Sozinho_acompanhado.png)
+Este gráfico compara a taxa de sobrevivência de passageiros que estavam acompanhados com aqueles que estavam sozinhos. Os que estavam acompanhados tinham maior chance de sobrevivência.
 
-## Leitura dos dados
-### 1 - Extrair título do nome
-train['Title'] = train['Name'].str.extract(r' ([A-Za-z]+)\.', expand=False)
+## Ferramentas Utilizadas
 
-### 2 - Lista de variáveis categóricas
-categorical_vars = ['Sex', 'Pclass', 'Embarked', 'Title']
+- **Linguagem de Programação**: Python
+- **Bibliotecas**: Pandas, Matplotlib, Seaborn
+- **Ambiente**: Jupyter Notebook
+- **Visualizações**: Gráficos de barra, histogramas, boxplots, matriz de confusão, matriz de correlação
 
-### 3 - Criar um DataFrame vazio para armazenar os resultados
-summary_tables = []
+## Conclusão
 
-for var in categorical_vars:
-    counts = train[var].value_counts().reset_index()
-    counts.columns = ['Category', 'Count']
-    counts['Variable'] = var
-    counts = counts[['Variable', 'Category', 'Count']]
-    summary_tables.append(counts)
-
-#### 4 - Loop para contar categorias em cada variável categórica:
-for var in categorical_vars:
-    counts = train[var].value_counts().reset_index()
-    counts.columns = ['Category', 'Count']
-    counts['Variable'] = var
-    counts = counts[['Variable', 'Category', 'Count']]
-    summary_tables.append(counts)
-
-#### 5 - Concatenar todas as tabelas:
-final_summary = pd.concat(summary_tables, ignore_index=True)
-
-# Insights explorados
-
-### Análise Descritiva:
-Fiz distribuições categóricas como Sex, Pclass, Embarked e Title, que mostram a distribuição dessas características entre os passageiros.
-
-### Criação de Novas Features:
-Variáveis como IsAlone foram criadas para verificar se passageiros que estavam sozinhos tinham diferentes chances de sobrevivência.
-
-### Modelagem Preditiva (Random Forest):
-Divide o conjunto em features (Pclass, Sex, Age, Fare, FamilySize, IsAlone) para o treinamento do modelo e a variável-alvo foi Survived.
-Um modelo de Random Forest foi treinado com 100 árvores de decisão e uma semente de aleatoriedade (random_state = 42) para garantir a reprodutibilidade. O modelo foi avaliado e utilizado para prever a sobrevivência dos passageiros no conjunto de teste.
-### Análises Visuais:
-Criei gráficos de distribuição para visualizar a sobrevivência com base em características como sexo, classe e porto de embarque.
-E foi gerada uma matriz de correlação para analisar as inter-relações entre as variáveis numéricas do conjunto de dados e uma Avaliação do desempenho do modelo através de uma matriz de confusão para verificar verdadeiros e falsos positivos/negativos.
-
-A curva ROC avaliou o desempenho do modelo com relação à taxa de verdadeiros e falsos positivos
-
-### Resultado
-
-Sobrevivência por Sexo: 
-Mulheres tinham uma chance significativamente maior de sobreviver em comparação aos homens.
-
-
-Sobrevivência por Classe: 
-Passageiros da 1ª classe tinham maior probabilidade de sobreviver, enquanto os da 3ª classe enfrentaram maiores riscos.
-
-Sobrevivência por Porto de Embarque: 
-Passageiros que embarcaram no porto C (Cherbourg) tiveram uma taxa de sobrevivência maior em relação aos outros portos.
-
-Impacto do Tamanho da Família: 
-Passageiros que estavam sozinhos tinham uma taxa de sobrevivência menor em comparação àqueles que viajavam com familiares.
-
-
-O modelo Random Forest foi capaz de prever a sobrevivência dos passageiros com boa precisão. Além disso, insights importantes sobre os fatores que influenciam a sobrevivência, como sexo, classe social, e o fato de estar viajando sozinho, foram gerados a partir das análises exploratórias.
+A análise dos dados do Titanic revela padrões importantes sobre os fatores que influenciaram as chances de sobrevivência. Sexo, classe social e tarifa paga tiveram papéis cruciais, enquanto outros fatores como o porto de embarque e títulos pessoais também mostraram influência significativa. O modelo de Random Forest utilizado conseguiu identificar corretamente a maioria dos sobreviventes com base nas variáveis analisadas.
